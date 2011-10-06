@@ -50,4 +50,5 @@ Credits
 
 - Mayads <developer@mayads.de>
 
-If you like it, feel free to donate to: 1FsYSHSewi47Swc1QjLSMqb3vXchafLxKS
+If you like it, feel free to donate to: 
+    1FsYSHSewi47Swc1QjLSMqb3vXchafLxKS
