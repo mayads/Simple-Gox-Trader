@@ -37,7 +37,9 @@ Run
 ---
 
 Just call
+
 	php tickerCoins.php
+
 on the console.
 
 On Windows make sure you have the php executable in your PATH.
@@ -51,4 +53,5 @@ Credits
 - Mayads <developer@mayads.de>
 
 If you like it, feel free to donate to: 
+
     1FsYSHSewi47Swc1QjLSMqb3vXchafLxKS
