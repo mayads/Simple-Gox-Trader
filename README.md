@@ -58,7 +58,7 @@ On Mac you have to set the "date.timezone" value in the php.ini as admin.
 
 ### Starting the programs ###
 
-Just one of the following:
+Just call one of the following:
 
 #### Ticker display ####
 	
