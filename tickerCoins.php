@@ -78,7 +78,6 @@ function main( $wait )
 	for ($i = 0; $i < (10 - count($objOrders->orders)*2); ++$i) {
 		echo "--\n";
 	}
-	echo "DONATIONS WELCOME: 1FsYSHSewi47Swc1QjLSMqb3vXchafLxKS\n";
 	sleep($seconds_wait);
     }
 }

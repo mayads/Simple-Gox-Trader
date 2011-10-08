@@ -28,23 +28,89 @@ Features
 --------
 
 - Ticker display
+    - get an overview of your wallet and balances in USD and EURO
+    - information about USD and EURO trading infos
+    - all your open orders
 - Sell bitcoins
+    - for now in USD
 - Buy bitcoins
 - Cancel orders
+    - cancel all or one particular
 
 
 Run
 ---
 
-Just call
 
-	php tickerCoins.php
+### Setup ###
+Before you can start trading and watching, you have to get a MT.Gox **Key** 
+and **Secret**. You can generate them in on the MT.Gox Website in your profile under 
+"Application and API access" in section "Advanced API key creation". Put in a 
+name and generate the key.
 
-on the console.
+Now that you got them, open up the file "mtgox_func.php" and fill in your data 
+where it says "//<----KEY!" and "//<-SECRET!".
 
 On Windows make sure you have the php executable in your PATH.
 
 On Mac you have to set the "date.timezone" value in the php.ini as admin.
+
+
+### Starting the programs ###
+
+Just one of the following:
+
+#### Ticker display ####
+	
+    php tickerCoins.php
+
+**Options:**
+
+- -i [sec]
+    - setting the refresh interval in sec ( remeber MT.Gox has a 10s limit )
+- [none]
+    - refresh interval is 10s
+- -h
+    - get the help
+
+#### Sell bitcoins ####
+	
+    php sellCoins.php
+
+**Options:**
+
+- [amount to sell]
+    - amount of bitcoins to sell
+- [price]
+    - price to sell for in USD
+- -h
+    - get the help
+
+#### Buy bitcoins ####
+	
+    php buyCoins.php
+
+**Options:**
+
+- [amount to buy]
+    - amount of bitcoins to buy
+- [price]
+    - price to buy the bitcoins for in USD
+- -h
+    - get the help
+
+#### Cancel orders ####
+	
+    php cancelCoins.php
+
+**Options:**
+
+- [oid]
+    - order id off the order to cancel
+- --all
+    - cancel all orders
+- -h
+    - get the help
 
 
 Credits
