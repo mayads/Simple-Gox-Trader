@@ -32,11 +32,12 @@ Features
     - information about USD and EURO trading infos
     - all your open orders
 - Sell bitcoins
-    - for now in USD
 - Buy bitcoins
 - Cancel orders
     - cancel all or one particular
 
+### Possible currencies are:
+USD, EUR, JPY, CAD, GBP, CHF, RUB, AUD, SEK, DKK, HKD, PLN, CNY, SGD, THB, NZD
 
 Run
 ---
@@ -75,20 +76,22 @@ Just call one of the following:
 
 #### Sell bitcoins ####
 	
-    php sellCoins.php
+    php sellCoins.php [amount to sell] [price] [currency]
 
 **Options:**
 
 - [amount to sell]
     - amount of bitcoins to sell
 - [price]
-    - price to sell for in USD
+    - price to sell for
+- [currency]
+    - currency to sell in, optional, default is 'USD'
 - -h
     - get the help
 
 #### Buy bitcoins ####
 	
-    php buyCoins.php
+    php buyCoins.php [amount to buy] [price] [currency]
 
 **Options:**
 
@@ -96,6 +99,8 @@ Just call one of the following:
     - amount of bitcoins to buy
 - [price]
     - price to buy the bitcoins for in USD
+- [currency]
+    - currency to buy in, optional, default is 'USD'
 - -h
     - get the help
 

@@ -64,14 +64,14 @@ function GetFunds($currency)
 }
 
     
-function BuyBTC($amount,$price)
+function BuyBTC($amount, $price, $currency='USD')
 {
-  return mtgox_query('0/buyBTC.php', array('amount' => $amount, 'price' => $price));
+  return mtgox_query('0/buyBTC.php', array('amount' => $amount, 'price' => $price, 'Currency' => $currency));
 }
 
-function SellBTC($amount,$price)
+function SellBTC($amount, $price, $currency='USD')
 {
-   return mtgox_query('0/sellBTC.php', array('amount' => $amount, 'price' => $price));
+   return mtgox_query('0/sellBTC.php', array('amount' => $amount, 'price' => $price, 'Currency' => $currency));
 }
 
 function CancelOrder($oid,$type)

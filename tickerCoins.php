@@ -75,7 +75,7 @@ function main( $wait )
 	echo $objOrders->printOrders($mtInfo->fee);
 	
 	// fill the screen up to 24 lines
-	for ($i = 0; $i < (10 - count($objOrders->orders)*2); ++$i) {
+	for ($i = 0; $i < (11 - count($objOrders->orders)*2); ++$i) {
 		echo "--\n";
 	}
 	sleep($seconds_wait);

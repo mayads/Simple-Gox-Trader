@@ -11,35 +11,55 @@ function printHelp($argv)
     echo 
     "Buy Coins at mtgox.com Script.
 	Usage:
-	" .$argv[0]. " <amount to buy> <price>
+	" .$argv[0]. " <amount to buy> <price> [<currency>]
 
 	<amount to buy>    BTC value to buy
-	<price>		   price in USD
+	<price>		   price
+	<currency>	   currency to buy in, default is 'USD'
+			   possible values are:
+			    USD, EUR, JPY, CAD, GBP, CHF, RUB, AUD,
+			    SEK, DKK, HKD, PLN, CNY, SGD, THB, NZD
 	With the --help, -help, -h, or -? options, you 
 	can get this help.
 ";
 }
 
-if ( count($argv) != 3 || in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
-    printHelp($argv);
-}
-elseif ( count($argv) === 3 ) {
-    $amount= $argv[1];
-    $price = $argv[2];
-    
-    echo "PRICE: $price AMOUNT: $amount\n"; 
-    echo "BUYING Bit coins to cancel transaction hit Ctrl C\n"; 
+function main($amount, $price, $currency)
+{
+    echo "PRICE: $price $currency AMOUNT: $amount\n";
+    echo "BUYING Bit coins to cancel transaction hit Ctrl C\n";
     sleep(5);
-    $req=array('amount'=>$amount,'price'=>$price); 
-    $decoded=mtgox_query('0/buyBTC.php',$req); 
     
+    $decoded=BuyBTC($amount, $price, $currency);
+
     if ( isset($decoded['status']) ) {
 	echo "Printing orders\n";
-	
+
 	$mtOrders = new MTOrders();
 	$mtOrders->setData($decoded);
 	echo $mtOrders->printOrders(0.6);
     }
-    
+}
+
+if ( $argc < 3 || $argc > 4 )
+{
+    printHelp($argv);
+}
+elseif ( in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
+    printHelp($argv);
+}
+elseif ( $argc === 3 ) {
+    $amount= $argv[1];
+    $price = $argv[2];
+    main($amount, $price, 'USD');
+}
+elseif ($argc === 4) {
+    $amount= $argv[1];
+    $price = $argv[2];
+    $currency = $argv[3];
+    main($amount, $price, $currency);
+}
+else {
+    printHelp($argv);
 }
 ?>
