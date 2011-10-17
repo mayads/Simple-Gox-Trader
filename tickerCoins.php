@@ -26,16 +26,21 @@ if ( count($argv) === 2 && in_array($argv[1], array('--help', '-help', '-h', '-?
 }
  elseif ( $argc === 2 && $argv[1] === '-t' ) {
 
-     echo "history USD
+//     echo "history USD
+//";
+//     $decoded = GetHistory('USD');
+//     
+//    $Data = str_getcsv($decoded, "\n"); //parse the rows
+//    //var_dump($Data);
+//    foreach($Data as $Row) 
+//	$Rows[] = str_getcsv($Row, ","); //parse the items in rows 
+// 
+//     var_dump($Rows);
+     echo "getInfo
 ";
-     $decoded = GetHistory('USD');
      
-    $Data = str_getcsv($decoded, "\n"); //parse the rows
-    //var_dump($Data);
-    foreach($Data as $Row) 
-	$Rows[] = str_getcsv($Row, ","); //parse the items in rows 
- 
-     var_dump($Rows);
+     $decoded = GetInfo("EUR");
+     var_dump($decoded);
 }
 else if ( $argc === 3 && $argv[1] === '-i' ) {
 	main( $argv[2] );
