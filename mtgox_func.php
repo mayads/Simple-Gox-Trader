@@ -5,8 +5,8 @@ include_once 'MTOrders.php';
 
 function mtgox_query($path, array $req = array(), $decode = TRUE ) {
     // API settings
-    $mtgox_key='5ae2509c-684b-44e9-b2c2-f0d343dfb9c9';      //<----KEY! 
-    $mtgox_secret='B5pjhXynvQks2/7XBGwG2vfPDdZoi/VN55syivTAZ37u8QmuUKSAkWGDo20J8t7T52aMnyGrihmbPM29PTfBmQ==';   //<-SECRET! 
+    $mtgox_key='';      //<----KEY! 
+    $mtgox_secret='';   //<-SECRET! 
  
     // generate a nonce as microtime, with as-string handling to avoid problems with 32bits systems
     $mt = explode(' ', microtime());
