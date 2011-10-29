@@ -2,12 +2,12 @@
     
 // instance loader
 include_once './class_loader.php';
+
 // mtgox functions
 include_once "./mtgox_func.php";
-    
 
 function printHelp($argv)
-{
+{  
     echo 
     "Sell Coins at mtgox.com Script.
 	Usage:
@@ -15,7 +15,7 @@ function printHelp($argv)
 
 	<amount to sell>    BTC value to sell
 	<price>		    price
-	<currency>	    currency to sell in, default is 'USD'
+	<currency>	    currency to sell in, default is '".loadSingleton('MTConfig')->defaultCurrency."'
 			    possible values are: 
 				USD, EUR, JPY, CAD, GBP, CHF, RUB, AUD,
 				SEK, DKK, HKD, PLN, CNY, SGD, THB, NZD
@@ -24,14 +24,13 @@ function printHelp($argv)
 ";
 }
 
-function main($amount, $price, $currency)
+
+function main($amount, $price, $currency, $wait )
 {
     echo "PRICE: $price $currency AMOUNT: $amount\n"; 
     echo "SELLING Bit coins to cancel transaction hit Ctrl C\n"; 
-    sleep(5);
+    sleep($wait);
     $decoded = SellBTC($amount, $price, $currency);
-//    $req=array('amount'=>$amount,'price'=>$price); 
-//    $decoded=mtgox_query('0/sellBTC.php',$req); 
     
     if ( isset($decoded['status']) ) {
 	echo "Printing orders\n";
@@ -52,13 +51,13 @@ elseif ( in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
 elseif ( $argc === 3 ) {
     $amount= $argv[1];
     $price = $argv[2];
-    main($amount, $price, 'USD');
+    main($amount, $price, loadSingleton('MTConfig')->defaultCurrency, loadSingleton('MTConfig')->defaultCancelwait );
 }
 elseif ($argc === 4) {
     $amount= $argv[1];
     $price = $argv[2];
     $currency = $argv[3];
-    main($amount, $price, $currency);
+    main($amount, $price, $currency, loadSingleton('MTConfig')->defaultCancelwait );
 }
 else {
     printHelp($argv);

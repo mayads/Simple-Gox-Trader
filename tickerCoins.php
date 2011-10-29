@@ -5,7 +5,6 @@ include_once './class_loader.php';
 // mtgox functions
 include_once "mtgox_func.php";
 include_once "MTInfo.php";
-    
 
 function printHelp($argv)
 {

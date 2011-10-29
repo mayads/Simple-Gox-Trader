@@ -15,7 +15,7 @@ function printHelp($argv)
 
 	<amount to buy>    BTC value to buy
 	<price>		   price
-	<currency>	   currency to buy in, default is 'USD'
+	<currency>	   currency to buy in, default is '".loadSingleton('MTConfig')->defaultCurrency."'
 			   possible values are:
 			    USD, EUR, JPY, CAD, GBP, CHF, RUB, AUD,
 			    SEK, DKK, HKD, PLN, CNY, SGD, THB, NZD
@@ -24,7 +24,7 @@ function printHelp($argv)
 ";
 }
 
-function main($amount, $price, $currency)
+function main($amount, $price, $currency, $wait )
 {
     echo "PRICE: $price $currency AMOUNT: $amount\n";
     echo "BUYING Bit coins to cancel transaction hit Ctrl C\n";
@@ -51,13 +51,13 @@ elseif ( in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
 elseif ( $argc === 3 ) {
     $amount= $argv[1];
     $price = $argv[2];
-    main($amount, $price, 'USD');
+    main($amount, $price, loadSingleton('MTConfig')->defaultCurrency, loadSingleton('MTConfig')->defaultCancelwait );
 }
 elseif ($argc === 4) {
     $amount= $argv[1];
     $price = $argv[2];
     $currency = $argv[3];
-    main($amount, $price, $currency);
+    main($amount, $price, $currency, loadSingleton('MTConfig')->defaultCancelwait);
 }
 else {
     printHelp($argv);

@@ -49,7 +49,7 @@ and **Secret**. You can generate them in on the MT.Gox Website in your profile u
 "Application and API access" in section "Advanced API key creation". Put in a 
 name and generate the key.
 
-Now that you got them, open up the file "mtgox_func.php" and fill in your data 
+Now that you got them, open up the file "config.php" and fill in your data 
 where it says "//<----KEY!" and "//<-SECRET!".
 
 On Windows make sure you have the php executable in your PATH.
@@ -85,7 +85,7 @@ Just call one of the following:
 - [price]
     - price to sell for
 - [currency]
-    - currency to sell in, optional, default is 'USD'
+    - currency to sell in, optional, default is 'EUR'
 - -h
     - get the help
 

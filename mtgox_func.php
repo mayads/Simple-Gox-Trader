@@ -1,13 +1,13 @@
 <?php
-    
 
+include_once 'config.php';
 include_once 'MTOrders.php';
 
 function mtgox_query($path, array $req = array(), $decode = TRUE ) {
     // API settings
-    $mtgox_key='';      //<----KEY! 
-    $mtgox_secret='';   //<-SECRET! 
- 
+    $mtgox_key=loadSingleton('MTConfig')->mtgox_key; 
+    $mtgox_secret=loadSingleton('MTConfig')->mtgox_secret;
+
     // generate a nonce as microtime, with as-string handling to avoid problems with 32bits systems
     $mt = explode(' ', microtime());
     $req['nonce'] = $mt[1].substr($mt[0], 2, 6);
